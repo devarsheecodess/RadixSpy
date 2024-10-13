@@ -17,6 +17,7 @@ import TraceAccounts from './components/pages/TraceAccounts';
 import Video from './components/pages/Video';
 import Control from './components/pages/Control';
 import History from './components/pages/History';
+import Alerts from './components/pages/Alerts';
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,15 @@ const router = createBrowserRouter([
       <div className='flex gap-5'>
         <Control />
         <History />
+      </div>
+    ),
+  },
+  {
+    path: "/alerts",
+    element: (
+      <div className='flex gap-5'>
+        <Control />
+        <Alerts />
       </div>
     ),
   },

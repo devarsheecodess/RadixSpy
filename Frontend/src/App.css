@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    transition-duration: 0.1s;
 }
 
 /* Animations */
