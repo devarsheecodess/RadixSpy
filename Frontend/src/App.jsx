@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Features from './components/Features';
+import Footer from './components/Footer';
 import Team from './components/Team';
 import Home from './components/pages/Home';
 import Post from './components/pages/Post';
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Landing />
+        <Footer />
       </div>
     ),
   },
@@ -51,6 +53,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Team />
+        {/* <Footer /> */}
       </div>
     ),
   },
@@ -60,6 +63,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Features />
+        <Footer />
       </div>
     ),
   },

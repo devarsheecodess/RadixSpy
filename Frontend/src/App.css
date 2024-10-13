@@ -8,6 +8,14 @@
     transition-duration: 0.1s;
 }
 
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
@@ -37,4 +45,45 @@
 
 .entry-animation {
   animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-5%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Text container */
+.slide-in-text {
+  animation: slideInFromLeft 1s ease-out forwards;
+  opacity: 0; /* Hidden initially */
+}
+
+/* App.css or your main CSS file */
+.glow-button {
+  position: relative;
+  z-index: 0; /* Ensures the glow is behind the text */
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(132, 42, 42, 0.5); /* Adjust the color and opacity as needed */
+  filter: blur(20px);
+  z-index: -1; /* Places the glow behind the button */
+  transition: opacity 0.3s ease; /* Smooth transition for the glow */
+}
+
+.glow-button:hover::before {
+  opacity: 1; /* Show the glow on hover */
 }
