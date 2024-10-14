@@ -10,11 +10,15 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Features from './components/Features';
+import Footer from './components/Footer';
 import Team from './components/Team';
 import Home from './components/pages/Home';
 import Post from './components/pages/Post';
 import TraceAccounts from './components/pages/TraceAccounts';
 import Video from './components/pages/Video';
+import Control from './components/pages/Control';
+import History from './components/pages/History';
+import Alerts from './components/pages/Alerts';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Landing />
+        <Footer />
       </div>
     ),
   },
@@ -48,6 +53,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Team />
+        {/* <Footer /> */}
       </div>
     ),
   },
@@ -57,13 +63,15 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Features />
+        <Footer />
       </div>
     ),
   },
   {
     path: "/home",
     element: (
-      <div>
+      <div className='flex gap-5'>
+        <Control />
         <Home />
       </div>
     ),
@@ -71,7 +79,8 @@ const router = createBrowserRouter([
   {
     path: "/post",
     element: (
-      <div>
+      <div className='flex gap-5'>
+        <Control />
         <Post />
       </div>
     ),
@@ -79,7 +88,8 @@ const router = createBrowserRouter([
   {
     path: "/trace-accounts",
     element: (
-      <div>
+      <div className='flex gap-5'>
+        <Control />
         <TraceAccounts />
       </div>
     ),
@@ -87,7 +97,8 @@ const router = createBrowserRouter([
   {
     path: "/video",
     element: (
-      <div>
+      <div className='flex gap-5'>
+        <Control />
         <Video />
       </div>
     ),
@@ -95,8 +106,18 @@ const router = createBrowserRouter([
   {
     path: "/history",
     element: (
-      <div>
+      <div className='flex gap-5'>
+        <Control />
         <History />
+      </div>
+    ),
+  },
+  {
+    path: "/alerts",
+    element: (
+      <div className='flex gap-5'>
+        <Control />
+        <Alerts />
       </div>
     ),
   },

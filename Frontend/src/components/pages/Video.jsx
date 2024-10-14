@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 const Video = () => {
   const [videoUrl, setVideoUrl] = useState(''); // State to hold the video URL
   const [videoSrc, setVideoSrc] = useState(null); // State to hold the URL for the video player
@@ -36,10 +35,10 @@ const Video = () => {
       </div>
       <div className="w-[820px] h-auto bg-[#D9D9D9] flex flex-col items-center justify-center rounded-lg shadow-lg mt-5">
         <div className="bg-[#D19FA5] w-full h-auto px-4 py-2 flex flex-col items-center rounded-lg">
-        <div className="flex items-center w-full ">
-         <i className="fas fa-video text-red-900 mr-2"></i> {/* Video Icon */}
-         <span className="text-red-900 font-bold">Enter the video URL</span>
-         </div>
+          <div className="flex items-center w-full mb-4">
+            <i className="fas fa-video text-red-900 mr-2"></i> {/* Video Icon */}
+            <span className="text-red-900 font-bold">Enter the video URL</span>
+          </div>
           <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
             <input
               type="text"
@@ -61,7 +60,11 @@ const Video = () => {
           )}
         </div>
       </div>
+      <div className='flex items-center justify-center flex-col w-full min-h-screen'>
+        <h1 className='font-bold text-red-950 text-4xl mb-8 fade-in-up'>Analyse Videos</h1>
+      </div>
     </div>
   );
 }
+
 export default Video;
