@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Team />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     ),
   },
