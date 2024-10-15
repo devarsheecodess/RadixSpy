@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -75,6 +75,7 @@ const Login = () => {
                                 </div>
                                 <a href="#" className="text-sm font-medium text-[#842A2A] hover:underline">Forgot password?</a>
                             </div>
+                            <Link></Link>
                             <button
                                 type="submit"
                                 onClick={handleSubmit}
@@ -83,7 +84,7 @@ const Login = () => {
                                 Sign in
                             </button>
                             <p className="text-sm font-light text-gray-400">
-                                Don’t have an account yet? <a href="#" className="font-medium text-[#842A2A] hover:underline">Sign up</a>
+                                Don’t have an account yet? <Link to={'/signup'}> <a href="#" className="font-medium text-[#842A2A] hover:underline">Sign up</a></Link>
                             </p>
                         </form>
                     </div>
