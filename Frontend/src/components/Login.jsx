@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -14,10 +15,14 @@ const Login = () => {
         }
     }
 
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
+
     return (
         <div className="relative h-screen overflow-hidden">
-            <button 
-                onClick={() => navigate('/')} 
+            <button
+                onClick={() => navigate('/')}
                 className="absolute z-40 top-4 left-4 w-10 p-2 bg-[#3c0c0c] rounded-full hover:bg-[#842A2A] focus:outline-none cursor-pointer"
                 title="Home"
             >
@@ -42,22 +47,35 @@ const Login = () => {
                                     name="username"
                                     id="username"
                                     className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
-                                    placeholder="username123"
                                     required
                                 />
                             </div>
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">Password</label>
-                                <input
-                                    type="password"
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    name="password"
-                                    id="password"
-                                    placeholder="••••••••"
-                                    className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
-                                    required
-                                />
+                                <div className="relative"> {/* Added relative positioning to the parent div */}
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        name="password"
+                                        id="password"
+                                        className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
+                                        required
+                                    />
+                                    <button
+                                        type="button" // Change to button type
+                                        onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
+                                        className="absolute outline-none right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white" // Positioned and styled button
+                                        title={showPassword ? "Hide password" : "Show password"} // Accessibility
+                                    >
+                                        {showPassword ? (
+                                            <i className="fa-regular fa-eye-slash"></i>
+                                        ) : (
+                                            <i className="fa-regular fa-eye"></i>
+                                        )}
+                                    </button>
+                                </div>
                             </div>
+
                             <div className="flex items-center justify-between">
                                 <div className="flex items-start">
                                     <div className="flex items-center h-5">

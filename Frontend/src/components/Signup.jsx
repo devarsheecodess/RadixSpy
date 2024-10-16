@@ -5,6 +5,8 @@ import { useNavigate, Link } from 'react-router-dom';
 const Signup = () => {
     const [form, setForm] = useState({ username: "", password: "" });
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => { // Make this function async
@@ -22,12 +24,12 @@ const Signup = () => {
                 return;
             }
 
-            if(response.status === 409) {
+            if (response.status === 409) {
                 alert("Username already exists!");
                 return;
             }
 
-            if(response.status === 400) {
+            if (response.status === 400) {
                 alert("Username and password are required!");
                 return;
             }
@@ -74,35 +76,61 @@ const Signup = () => {
                                     name="username"
                                     id="username"
                                     className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
-                                    placeholder="name@company.com"
                                     required
-                                />
+                                    />
                             </div>
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">Password</label>
-                                <input
-                                    type="password"
-                                    onChange={handleChange}
-                                    value={form.password}
-                                    name="password"
-                                    id="password"
-                                    placeholder="••••••••"
-                                    className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
-                                    required
-                                />
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        onChange={handleChange}
+                                        value={form.password}
+                                        name="password"
+                                        id="password"
+                                        className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5 pr-12" // Added padding to the right for the button
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute outline-none right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-200" // Transition effects for smoother interaction
+                                        title={showPassword ? "Hide password" : "Show password"}
+                                        >
+                                        {showPassword ? (
+                                            <i className="fa-regular fa-eye-slash"></i>
+                                        ) : (
+                                            <i className="fa-regular fa-eye"></i>
+                                        )}
+                                    </button>
+                                </div>
+
                             </div>
                             <div>
                                 <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-white">Confirm password</label>
-                                <input
-                                    type="password"
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    value={confirmPassword}
-                                    name="confirm-password"
-                                    id="confirm-password"
-                                    placeholder="••••••••"
-                                    className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
-                                    required
-                                />
+                                <div className='relative'>
+                                    <input
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        value={confirmPassword}
+                                        name="confirm-password"
+                                        id="confirm-password"
+                                        className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                        className="absolute outline-none right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors duration-200" // Transition effects for smoother interaction
+                                        title={showConfirmPassword ? "Hide password" : "Show password"}
+                                    >
+                                        {showConfirmPassword ? (
+                                            <i className="fa-regular fa-eye-slash"></i>
+                                        ) : (
+                                            <i className="fa-regular fa-eye"></i>
+                                        )}
+                                    </button>
+                                </div>
                             </div>
                             <div className="flex items-start">
                                 <div className="flex items-center h-5">
