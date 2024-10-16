@@ -1,16 +1,47 @@
 import React, { useState } from 'react';
-import { useNavigate, Link} from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Signup = () => {
-    const [username, setusername] = useState("");
-    const [password, setPassword] = useState("");
+    const [form, setForm] = useState({ username: "", password: "" });
     const [confirmPassword, setConfirmPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => { // Make this function async
         e.preventDefault();
-        alert("Account created successfully!");
-        navigate("/home");
+        if (form.password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:5000/signup', form);
+
+            if (response.status !== 201) {
+                alert("An error occurred while creating the account!");
+                return;
+            }
+
+            if(response.status === 409) {
+                alert("Username already exists!");
+                return;
+            }
+
+            if(response.status === 400) {
+                alert("Username and password are required!");
+                return;
+            }
+
+            alert("Account created successfully!");
+            navigate("/login");
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred while creating the account!");
+        }
+    };
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
     };
 
     return (
@@ -37,8 +68,9 @@ const Signup = () => {
                             <div>
                                 <label htmlFor="username" className="block mb-2 text-sm font-medium text-white">Your username</label>
                                 <input
-                                    type="username"
-                                    onChange={(e) => setusername(e.target.value)}
+                                    type="text" // Change type to text
+                                    onChange={handleChange}
+                                    value={form.username}
                                     name="username"
                                     id="username"
                                     className="bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-[#842A2A] focus:border-[#842A2A] block w-full p-2.5"
@@ -50,7 +82,8 @@ const Signup = () => {
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">Password</label>
                                 <input
                                     type="password"
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={handleChange}
+                                    value={form.password}
                                     name="password"
                                     id="password"
                                     placeholder="••••••••"
@@ -63,6 +96,7 @@ const Signup = () => {
                                 <input
                                     type="password"
                                     onChange={(e) => setConfirmPassword(e.target.value)}
+                                    value={confirmPassword}
                                     name="confirm-password"
                                     id="confirm-password"
                                     placeholder="••••••••"
@@ -91,14 +125,14 @@ const Signup = () => {
                                 Create an account
                             </button>
                             <p className="text-sm font-light text-gray-400">
-                                Already have an account? <Link to={'/login'}><a href="#" className="font-medium text-[#842A2A] hover:underline">Login here</a></Link>
+                                Already have an account? <Link to={'/login'}><span className="font-medium text-[#842A2A] hover:underline">Login here</span></Link>
                             </p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Signup;
