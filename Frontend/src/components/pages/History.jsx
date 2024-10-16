@@ -2,14 +2,14 @@ import React from 'react';
 
 const History = () => {
   return (
-    <div className="relative flex items-center justify-center flex-col w-full min-h-screen text-red-950">
+    <div className="relative flex items-center justify-center flex-col w-full min-h-screen text-red-950 p-4 md:p-6">
       {/* Title */}
-      <h1 className="font-bold text-4xl mb-12 fade-in-up tracking-wide z-10">
+      <h1 className="font-bold text-red-950 text-3xl md:text-4xl lg:text-4xl fade-in-up text-center mb-10">
         History
       </h1>
 
       {/* Scrollable History Container */}
-      <div className="relative z-20 w-full max-w-4xl p-8 bg-[#D19FA5] bg-opacity-80 rounded-xl shadow-lg backdrop-blur-md h-[500px] overflow-y-scroll entry-animation">
+      <div className="relative z-20 w-full max-w-4xl p-8 bg-[#D19FA5] bg-opacity-80 rounded-xl shadow-lg backdrop-blur-md h-[500px] overflow-y-scroll entry-animation mt-[-20px]">
         {/* History Entries */}
         <div className="space-y-6">
           {/* History Item */}

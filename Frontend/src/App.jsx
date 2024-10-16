@@ -19,6 +19,7 @@ import Video from './components/pages/Video';
 import Control from './components/pages/Control';
 import History from './components/pages/History';
 import Alerts from './components/pages/Alerts';
+import Navbar from './components/pages/Navbar';
 
 const router = createBrowserRouter([
   {
@@ -70,7 +71,8 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: (
-      <div className='flex gap-5'>
+      <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <Home />
       </div>
@@ -79,7 +81,8 @@ const router = createBrowserRouter([
   {
     path: "/post",
     element: (
-      <div className='flex gap-5'>
+      <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <Post />
       </div>
@@ -88,7 +91,8 @@ const router = createBrowserRouter([
   {
     path: "/trace-accounts",
     element: (
-      <div className='flex gap-5'>
+      <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <TraceAccounts />
       </div>
@@ -97,7 +101,8 @@ const router = createBrowserRouter([
   {
     path: "/video",
     element: (
-      <div className='flex gap-5'>
+      <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <Video />
       </div>
@@ -106,7 +111,8 @@ const router = createBrowserRouter([
   {
     path: "/history",
     element: (
-      <div className='flex gap-5'>
+      <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <History />
       </div>
@@ -115,7 +121,8 @@ const router = createBrowserRouter([
   {
     path: "/alerts",
     element: (
-      <div className='flex gap-5'>
+        <div className='flex lg:flex-row flex-col'>
+        <Navbar />
         <Control />
         <Alerts />
       </div>

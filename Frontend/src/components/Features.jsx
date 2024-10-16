@@ -7,7 +7,7 @@ const Features = () => {
             {/* Background Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#421a1a] to-[#222024] opacity-80"></div>
             <main className='relative flex items-center justify-center flex-col ml-20 mr-20 text-wrap z-10'>
-                <h1 className='font-bold text-3xl fade-in-up mb-5 underline text-white mt-10'>RadixSpy</h1>
+                <h1 className='font-bold text-3xl md:text-4xl lg:text-4xl fade-in-up text-center mb-10 text-white underline mt-10'>RadixSpy</h1>
                 <p className='text-lg slide-in-text text-white'>
                     Radix Spy is a cutting-edge AI-powered tool developed to monitor and detect radical and extremist content on popular social media platforms such as Instagram, Facebook, and X (Twitter). It leverages advanced natural language processing (NLP) techniques and machine learning algorithms to perform real-time analysis of videos and user activity, enabling authorities to take timely action. The tool continuously scans and monitors profiles, analyzing posts for harmful content. Additionally, it detects video deepfakes, which are often used to spread false or misleading narratives. With robust features such as web scraping, API integration, and a comprehensive admin dashboard, Radix Spy empowers authorities to efficiently combat the spread of radical content online.
                 </p>

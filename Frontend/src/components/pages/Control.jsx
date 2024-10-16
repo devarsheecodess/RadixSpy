@@ -14,29 +14,29 @@ const Control = () => {
 
     return (
         <div>
-            <section className='bg-[#842A2A] p-7 flex items-center flex-col min-h-screen'>
+            <section className='bg-[#842A2A] p-7 lg:flex items-center flex-col min-h-screen hidden'>
                 <div className='flex justify-between items-center w-full mb-12'>
                     <h1 className='font-bold text-3xl text-white'>Radix Spy</h1>
-                    <Link to={'/alerts'}><li className='text-red-500 bg-transparent list-none border-none cursor-pointer text-2xl hover:text-[#421a1a]'><i class="fa-solid fa-bell"></i></li></Link>
+                    <Link to={'/alerts'}><li className='text-[#501616] bg-transparent list-none border-none cursor-pointer text-2xl hover:text-[#3c1616]'><i class="fa-solid fa-bell"></i></li></Link>
                 </div>
                 <menu>
                     <ul className='flex justify-center items-center flex-col gap-6'>
                         <Link to={'/home'}>
-                            <li className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Home</li>
+                            <li className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Home</li>
                         </Link>
                         <Link to={'/post'}>
-                            <li className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Post</li>
+                            <li className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Post</li>
                         </Link>
                         <Link to={'/video'}>
-                            <li className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Video</li>
+                            <li className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Video</li>
                         </Link>
                         <Link to={'/trace-accounts'}>
-                            <li className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Track Accounts</li>
+                            <li className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Track Accounts</li>
                         </Link>
                         <Link to={'/history'}>
-                            <li className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>History</li>
+                            <li className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>History</li>
                         </Link>
-                        <li onClick={handleLogout} className='p-5 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Logout</li>
+                        <li onClick={handleLogout} className='p-5 hover:scale-105 text-white w-52 flex justify-center items-center cursor-pointer bg-[#6b2020] rounded-lg shadow-lg hover:bg-[#591a1a] transition-all duration-200'>Logout</li>
                     </ul>
                 </menu>
             </section>
